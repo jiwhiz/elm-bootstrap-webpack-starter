@@ -14,7 +14,7 @@ with [elm-bootstrap](http://elm-bootstrap.info/):
 ### Install:
 Clone this repo into a new project folder, e.g. `my-elm-project`:
 ```
-git clone https://github.com/jiwhiz/elm-bootstrap/webpack-starter my-elm-project
+git clone https://github.com/jiwhiz/elm-bootstrap-webpack-starter my-elm-project
 cd my-elm-project
 ```
 
