@@ -8,14 +8,13 @@ with [elm-bootstrap](http://elm-bootstrap.info/):
 * Dev server with live reloading, HMR
 * Support for CSS/SCSS (with Autoprefixer), image assets
 * Bundling and minification for deployment
-* Basic app scaffold, using `Html.beginnerProgram`
 * Bootstrap 4 Template
 
 
 ### Install:
 Clone this repo into a new project folder, e.g. `my-elm-project`:
 ```
-git clone https://github.com/moarwick/elm-webpack-starter my-elm-project
+git clone https://github.com/jiwhiz/elm-bootstrap/webpack-starter my-elm-project
 cd my-elm-project
 ```
 
@@ -52,3 +51,7 @@ npm run build
 * To run locally, use `npm run local`
 
 
+### Credits:
+
+* [elm-community/elm-webpack-starter](https://github.com/elm-community/elm-webpack-starter)
+* [rundis/albums](https://github.com/rundis/albums)
