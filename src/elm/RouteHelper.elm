@@ -1,10 +1,14 @@
-module Routes exposing (..)
+module RouteHelper exposing (..)
 
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
 import UrlParser exposing (Parser, (</>), int, oneOf, s)
 import Navigation exposing (Location)
 import Html.Attributes exposing (href, attribute)
 import Html exposing (Html, Attribute, a)
 import Html.Events exposing (onWithOptions)
+import Bootstrap.Navbar
 import Json.Decode as Json
 
 

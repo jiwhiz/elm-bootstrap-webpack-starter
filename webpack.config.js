@@ -68,7 +68,7 @@ if ( TARGET_ENV === 'development' ) {
       rules: [
         {
           test:    /\.elm$/,
-          exclude: [/elm-stuff/, /node_modules/],
+          exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm$/],
           loader:  'elm-hot-loader!elm-webpack-loader?verbose=true&warn=true&debug=true'
         },
         {
@@ -80,6 +80,15 @@ if ( TARGET_ENV === 'development' ) {
             'sass-loader'
           ]
         }
+
+        // {
+        //   test: /Stylesheets\.elm$/,
+        //   use: [
+        //     'style-loader',
+        //     'css-loader',
+        //     'elm-css-webpack-loader'
+        //   ]
+        // }
       ]
     }
 
@@ -98,21 +107,29 @@ if ( TARGET_ENV === 'production' ) {
       rules: [
         {
           test:    /\.elm$/,
-          exclude: [/elm-stuff/, /node_modules/],
+          exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm/],
           use:     'elm-webpack-loader'
         },
+        // {
+        //   test: /\.(css|scss)$/,
+        //   use: ExtractTextPlugin.extract(
+        //     {
+        //       fallback: "style-loader",
+        //       use: [
+        //         'css-loader',
+        //         'postcss-loader',
+        //         'sass-loader'
+        //       ],
+        //       allChunks: true
+        //     })
+        // }
         {
-          test: /\.(css|scss)$/,
-          use: ExtractTextPlugin.extract(
-            {
-              fallback: "style-loader",
-              use: [
-                'css-loader',
-                'postcss-loader',
-                'sass-loader'
-              ],
-              allChunks: true
-            })
+          test: /Stylesheets\.elm$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'elm-css-webpack-loader'
+          ]
         }
       ]
     },
@@ -125,6 +142,9 @@ if ( TARGET_ENV === 'production' ) {
         },
         {
           from: 'src/favicon.ico'
+        },
+        {
+          from: 'src/elm/Stylesheets.elm'
         },
       ]),
 
