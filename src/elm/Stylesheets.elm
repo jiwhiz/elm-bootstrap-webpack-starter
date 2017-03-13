@@ -9,7 +9,7 @@ port files : CssFileStructure -> Cmd msg
 
 cssFiles : CssFileStructure
 cssFiles =
-    toFileStructure [ ( "src/static/styles/main.css", compile [ Main.css ] ) ]
+    toFileStructure [ ( "main.css", compile [ Main.css ] ) ]
 
 
 main : CssCompilerProgram

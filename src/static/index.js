@@ -1,5 +1,5 @@
 // pull in desired CSS/SASS files
-require( './styles/main.css' );
+require("../elm/Stylesheets.elm")
 
 // inject bundled Elm app into div#main
 var Elm = require( '../elm/Main' );

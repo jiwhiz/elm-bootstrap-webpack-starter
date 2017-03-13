@@ -28,7 +28,6 @@ var commonConfig = {
   },
 
   module: {
-    noParse: /\.elm$/,
     rules: [
       {
         test: /\.(eot|ttf|woff|woff2|svg)$/,
@@ -43,7 +42,7 @@ var commonConfig = {
       inject:   'body',
       filename: 'index.html'
     })
-  ],
+  ]
 
 }
 
@@ -69,26 +68,19 @@ if ( TARGET_ENV === 'development' ) {
         {
           test:    /\.elm$/,
           exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm$/],
-          loader:  'elm-hot-loader!elm-webpack-loader?verbose=true&warn=true&debug=true'
+          use: [
+            'elm-hot-loader',
+            'elm-webpack-loader'
+          ] 
         },
         {
-          test: /\.(css|scss)$/,
+          test: /Stylesheets\.elm$/,
           use: [
             'style-loader',
             'css-loader',
-            'postcss-loader',
-            'sass-loader'
+            'elm-css-webpack-loader'
           ]
         }
-
-        // {
-        //   test: /Stylesheets\.elm$/,
-        //   use: [
-        //     'style-loader',
-        //     'css-loader',
-        //     'elm-css-webpack-loader'
-        //   ]
-        // }
       ]
     }
 
@@ -110,26 +102,15 @@ if ( TARGET_ENV === 'production' ) {
           exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm/],
           use:     'elm-webpack-loader'
         },
-        // {
-        //   test: /\.(css|scss)$/,
-        //   use: ExtractTextPlugin.extract(
-        //     {
-        //       fallback: "style-loader",
-        //       use: [
-        //         'css-loader',
-        //         'postcss-loader',
-        //         'sass-loader'
-        //       ],
-        //       allChunks: true
-        //     })
-        // }
         {
           test: /Stylesheets\.elm$/,
-          use: [
-            'style-loader',
-            'css-loader',
-            'elm-css-webpack-loader'
-          ]
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: [
+              'css-loader',
+              'elm-css-webpack-loader'
+            ]
+          })
         }
       ]
     },
@@ -142,16 +123,13 @@ if ( TARGET_ENV === 'production' ) {
         },
         {
           from: 'src/favicon.ico'
-        },
-        {
-          from: 'src/elm/Stylesheets.elm'
-        },
+        }
       ]),
 
       new webpack.optimize.OccurrenceOrderPlugin(),
 
       // extract CSS into a separate file
-      new ExtractTextPlugin( 'static/css/[name]-[hash].css'),
+      new ExtractTextPlugin( 'static/styles/[name]-[hash].css'),
 
       // minify & mangle JS/CSS
       new webpack.optimize.UglifyJsPlugin({
@@ -159,7 +137,7 @@ if ( TARGET_ENV === 'production' ) {
           compressor: { warnings: false }
           // mangle:  true
       })
-    ]
+    ],
 
   });
 }

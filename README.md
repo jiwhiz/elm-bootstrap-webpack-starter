@@ -8,7 +8,12 @@ with [elm-bootstrap](http://elm-bootstrap.info/):
 * Dev server with live reloading, HMR
 * Support for CSS/SCSS (with Autoprefixer), image assets
 * Bundling and minification for deployment
-* Bootstrap 4 Template
+* Bootstrap 4 Template [fixed navbar example]
+  (https://v4-alpha.getbootstrap.com/examples/navbar-top-fixed) 
+  implemented by [elm-bootstrap Navbar](http://elm-bootstrap.info/navbar)
+* Use [elm-css](https://github.com/rtfeldman/elm-css) to generate css from elm code
+* Use [elm-css-webpack-loader](https://github.com/jiwhiz/elm-css-webpack-loader/tree/upgrade)
+  to load Stylesheets.elm as css
 
 
 ### Install:
@@ -55,3 +60,4 @@ npm run build
 
 * [elm-community/elm-webpack-starter](https://github.com/elm-community/elm-webpack-starter)
 * [rundis/albums](https://github.com/rundis/albums)
+* [ohanhi/elm-taco](https://github.com/ohanhi/elm-taco)
