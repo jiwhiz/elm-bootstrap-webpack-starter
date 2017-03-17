@@ -8,8 +8,8 @@ with [elm-bootstrap](http://elm-bootstrap.info/):
 * Dev server with live reloading, HMR
 * Support for CSS/SCSS (with Autoprefixer), image assets
 * Bundling and minification for deployment
-* Bootstrap 4 Template [fixed navbar example]
-  (https://v4-alpha.getbootstrap.com/examples/navbar-top-fixed) 
+* Bootstrap 4 Template 
+  [fixed navbar example](https://v4-alpha.getbootstrap.com/examples/navbar-top-fixed) 
   implemented by [elm-bootstrap Navbar](http://elm-bootstrap.info/navbar)
 * Use [elm-css](https://github.com/rtfeldman/elm-css) to generate css from elm code
 * Use [elm-css-webpack-loader](https://github.com/jiwhiz/elm-css-webpack-loader/tree/upgrade)
