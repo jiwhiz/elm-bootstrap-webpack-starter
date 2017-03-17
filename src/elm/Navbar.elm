@@ -3,11 +3,16 @@ module Navbar exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Css
+import Html.CssHelpers
 import Bootstrap.Button as Button
 import Bootstrap.Form.Input as Input
 import Bootstrap.Navbar as Navbar exposing (State)
 import MainCss
 import RouteHelper exposing (..)
+
+
+{ id, class, classList } =
+    Html.CssHelpers.withNamespace "ebws"
 
 
 view : State -> Route -> (String -> msg) -> (State -> msg) -> Html msg
@@ -17,12 +22,12 @@ view state currentRoute changeLocationMsgTagger navbarMsgTagger =
             |> Navbar.withAnimation
             |> Navbar.collapseMedium
             |> Navbar.fixTop
+            |> Navbar.inverse
             |> Navbar.brand
                 [ href "/" ]
                 [ img
                     [ src "static/img/elm-bootstrap.svg"
-                      -- , class "d-inline-block align-top"
-                    , style [ ( "width", "30px" ) ]
+                    , class [ MainCss.BrandLogo ]
                     ]
                     []
                 , text " Project"
@@ -46,7 +51,7 @@ view state currentRoute changeLocationMsgTagger navbarMsgTagger =
                 [ Navbar.formItem []
                     [ Input.text [ Input.attrs <| [ placeholder "enter" ] ]
                     , Button.button
-                        [ Button.success
+                        [ Button.outlineSuccess
                         , Button.attrs [ Html.Attributes.class "ml-sm-2" ]
                         ]
                         [ text "Search" ]
@@ -71,7 +76,6 @@ routeToItemLink changeLocationMsgTagger currentRoute linkedToRoute title =
     in
         itemLink
             [ href path
-            , MainCss.styles [ Css.float Css.right ]
             , attribute "data-navigate" path
             , catchNavigationClicks (changeLocationMsgTagger path)
             ]

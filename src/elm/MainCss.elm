@@ -2,7 +2,7 @@ module MainCss exposing (..)
 
 import Html exposing (Attribute)
 import Html.Attributes
-import Css exposing (Stylesheet, stylesheet, minHeight, paddingTop, class, textAlign, center)
+import Css exposing (..)
 import Css.Elements exposing (body, li)
 import Css.Namespace exposing (namespace)
 
@@ -10,6 +10,7 @@ import Css.Namespace exposing (namespace)
 type CssClasses
     = NavBar
     | Jumbotron
+    | BrandLogo
 
 
 type CssIds
@@ -25,6 +26,9 @@ css =
             ]
         , class Jumbotron
             [ textAlign center
+            ]
+        , class BrandLogo
+            [ width (px 30)
             ]
         ]
 
