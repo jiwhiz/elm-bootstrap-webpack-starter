@@ -2,7 +2,6 @@ module Navbar exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Css
 import Html.CssHelpers
 import Bootstrap.Button as Button
 import Bootstrap.Form.Input as Input

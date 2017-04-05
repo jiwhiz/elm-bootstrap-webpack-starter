@@ -3,7 +3,7 @@ module MainCss exposing (..)
 import Html exposing (Attribute)
 import Html.Attributes
 import Css exposing (..)
-import Css.Elements exposing (body, li)
+import Css.Elements exposing (body)
 import Css.Namespace exposing (namespace)
 
 
