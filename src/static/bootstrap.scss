@@ -12,3 +12,6 @@ $navbar-light-hover-color:          rgba($brand-primary,1.25);
 $navbar-light-active-color:         rgba($brand-primary,1);
 
 @import '~bootstrap/scss/bootstrap.scss';
+
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome.scss';

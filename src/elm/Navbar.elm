@@ -6,6 +6,7 @@ import Html.CssHelpers
 import Bootstrap.Button as Button
 import Bootstrap.Form.Input as Input
 import Bootstrap.Navbar as Navbar exposing (State)
+import FontAwesome.Web as Icon
 import MainCss
 import RouteHelper exposing (..)
 
@@ -31,8 +32,8 @@ view state currentRoute changeLocationMsgTagger navbarMsgTagger =
                 , text " Project"
                 ]
             |> Navbar.items
-                [ routeToItemLink changeLocationMsgTagger currentRoute HomeRoute " Home"
-                , routeToItemLink changeLocationMsgTagger currentRoute AboutRoute " About"
+                [ routeToItemLink changeLocationMsgTagger currentRoute HomeRoute Icon.home " Home"
+                , routeToItemLink changeLocationMsgTagger currentRoute AboutRoute Icon.info " About"
                 , Navbar.dropdown
                     { id = "mydropdown"
                     , toggle = Navbar.dropdownToggle [] [ text "My dropdown" ]
@@ -60,8 +61,8 @@ view state currentRoute changeLocationMsgTagger navbarMsgTagger =
         ]
 
 
-routeToItemLink : (String -> msg) -> Route -> Route -> String -> Navbar.Item msg
-routeToItemLink changeLocationMsgTagger currentRoute linkedToRoute title =
+routeToItemLink : (String -> msg) -> Route -> Route -> Html msg -> String -> Navbar.Item msg
+routeToItemLink changeLocationMsgTagger currentRoute linkedToRoute icon title =
     let
         path =
             encode linkedToRoute
@@ -77,7 +78,7 @@ routeToItemLink changeLocationMsgTagger currentRoute linkedToRoute title =
             , attribute "data-navigate" path
             , catchNavigationClicks (changeLocationMsgTagger path)
             ]
-            [ text title ]
+            [ icon, text title ]
 
 
 routeToDropdownItem : (String -> msg) -> Route -> String -> Navbar.DropdownItem msg

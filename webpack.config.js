@@ -30,8 +30,8 @@ var commonConfig = {
   module: {
     rules: [
       {
-        test: /\.(eot|ttf|woff|woff2|svg)$/,
-        use:  'file-loader'
+        test: /\.(eot|ttf|svg)$/,
+        loader:  'file-loader'
       }
     ]
   },
@@ -89,6 +89,10 @@ if ( TARGET_ENV === 'development' ) {
             'postcss-loader',
             'sass-loader'
           ]
+        },
+        {
+          test: /\.(woff|woff2)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+          loader: 'url-loader?limit=100000'
         }
       ]
     }
@@ -131,6 +135,10 @@ if ( TARGET_ENV === 'production' ) {
               'sass-loader'
             ]
           })
+        },
+        {
+          test: /\.(woff|woff2)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+          loader: 'url-loader?limit=100000'
         }
       ]
     },
