@@ -24,7 +24,7 @@ var commonConfig = {
   },
 
   resolve: {
-    extensions: ['.js', '.elm']
+    extensions: ['.js', '.elm', '.scss']
   },
 
   module: {
@@ -80,6 +80,15 @@ if ( TARGET_ENV === 'development' ) {
             'css-loader',
             'elm-css-webpack-loader'
           ]
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ]
         }
       ]
     }
@@ -109,6 +118,17 @@ if ( TARGET_ENV === 'production' ) {
             use: [
               'css-loader',
               'elm-css-webpack-loader'
+            ]
+          })
+        },
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              'css-loader',
+              'postcss-loader',
+              'sass-loader'
             ]
           })
         }

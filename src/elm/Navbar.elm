@@ -21,7 +21,6 @@ view state currentRoute changeLocationMsgTagger navbarMsgTagger =
             |> Navbar.withAnimation
             |> Navbar.collapseMedium
             |> Navbar.fixTop
-            |> Navbar.inverse
             |> Navbar.brand
                 [ href "/" ]
                 [ img

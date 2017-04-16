@@ -1,0 +1,14 @@
+
+// Bootstrap overrides
+//
+// Copy variables from `_variables.scss` to this file to override default values
+// without modifying source files.
+
+// Reassign color vars to semantic color scheme
+$brand-primary:   rgb(86,63,122);
+
+$navbar-light-color:                rgba($brand-primary,.75);
+$navbar-light-hover-color:          rgba($brand-primary,1.25);
+$navbar-light-active-color:         rgba($brand-primary,1);
+
+@import '~bootstrap/scss/bootstrap.scss';
